@@ -17,5 +17,6 @@ home-rpi3:
 
   vars:
     ansible_python_interpreter: /usr/bin/python3
+    ansible_ssh_user: pi
     remote_user: pi
-
+    cluster_token: none
