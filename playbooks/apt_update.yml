@@ -1,0 +1,6 @@
+tasks:
+  - name: "Get cluster token"
+    command: "sudo cat /var/lib/rancher/k3s/server/node-token"
+
+  - set_fact:
+      cluster_token: "{{ command_output.stdout }}"

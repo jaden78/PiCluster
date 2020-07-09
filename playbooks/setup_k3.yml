@@ -1,0 +1,14 @@
+---
+- hosts: master
+  tasks:
+  - name: Get cluster token
+    become: yes
+    command: "cat /var/lib/rancher/k3s/server/node-token"
+    register: cluster_token
+
+- hosts: workers
+  tasks:
+  - name: write the token
+    template:
+      src: "{{cluster_token.stdout}}"
+      dest: ~/cluster_token
